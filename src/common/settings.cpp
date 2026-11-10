@@ -156,6 +156,10 @@ void UpdateGPUAccuracy() {
     values.current_gpu_accuracy = values.gpu_accuracy.GetValue();
 }
 
+const char* DefaultOnlineServer() {
+    return "";
+}
+
 bool IsGPULevelHigh() {
     return values.current_gpu_accuracy == GpuAccuracy::High;
 }
@@ -230,6 +234,10 @@ static bool current_program_is_switch2 = false;
 
 void SetCurrentProgramIsSwitch2(bool is_switch2) {
     current_program_is_switch2 = is_switch2;
+}
+
+bool ReactiveFlushing() {
+    return values.use_reactive_flushing.GetValue() || values.force_reactive_flushing;
 }
 
 bool CurrentProgramIsSwitch2() {
